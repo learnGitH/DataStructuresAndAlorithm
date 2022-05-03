@@ -1,0 +1,20 @@
+1: package com.haibin.thinking.io;
+2: 
+3: import com.haibin.thinking.util.Print;
+4: 
+5: import java.io.*;
+6: 
+7: public class BasicFileOutput{
+8:     static String file = IOFileBaseName.baseName + "BasicFileOutput.out";
+9:     public static void main(String[] args) throws IOException {
+10:         BufferedReader in = new BufferedReader(new StringReader(BufferedInputFile.read(IOFileBaseName.baseName + "BasicFileOutput.java")));
+11:         PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(file)));
+12:         int lineCount = 1;
+13:         String s;
+14:         while((s = in.readLine()) != null){
+15:             out.println(lineCount++ + ": " + s);
+16:         }
+17:         out.close();
+18:         Print.print(BufferedInputFile.read(file));
+19:     }
+20: }
